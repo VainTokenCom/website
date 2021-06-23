@@ -19,6 +19,30 @@
     font-display: swap;
 }
 
+@keyframes blur {
+    0%   {
+        filter: blur(51px);
+    }
+    50%  {
+        filter: blur(35px);
+    }
+    100% {
+        filter: blur(51px);
+    }
+}
+
+@keyframes rotate {
+    25%   {
+        transform: rotateY(0deg);
+    }
+    50%   {
+        transform: rotateY(180deg);
+    }
+    75%   {
+        transform: rotateY(0deg);
+    }
+}
+
 :root {
     --border-color: #7DCC40;
 }
@@ -82,6 +106,15 @@ video {
     text-align: left;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.divider {
+    width: 80px;
+    height: 5px;
+    background-color: white;
+    border-radius: 4px;
+    margin: 5rem auto;
 }
 
 
@@ -115,10 +148,13 @@ video {
     z-index: -1;
     border-radius: 50%;
     filter: blur(51px);
+    animation: blur 5s infinite;
 }
 
 .logo-circle img {
     width: 41%;
+    animation: rotate 5s infinite;
+    animation-timing-function: linear;
 }
 
 .top-text-actions {
@@ -149,14 +185,13 @@ video {
     padding: 1rem;
     border: none;
     cursor: pointer;
+    width: 106px;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
 .btn + .btn {
     margin-left: 1rem;
-}
-
-.buy-btn {
-    margin-left: -9px
 }
 
 .buttons {
@@ -221,11 +256,17 @@ video {
 .movement {
     display: flex;
     justify-content: space-between;
-    margin-top: 39pt;
 }
 
 .movement img {
     margin-top: -27px;
+    width: 490px;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.movement .title-small {
+    margin-top: 3rem;
 }
 
 .title-small {
@@ -233,54 +274,59 @@ video {
 }
 
 .roadmap {
-    display: flex;
-    justify-content: space-between;
     position: relative;
-    margin-top: 6rem;
+    padding-top: 4rem;
+}
+
+.roadmap-text {
+    position: relative;
+    z-index: 1;
 }
 
 .roadmap-block {
-    width: 344px;
+    padding: 0 3rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 .q {
-    background: radial-gradient(147.67% 147.67% at 49.57% 169.7%, #E2FF6F 0%, #30A61C 100%);
-    border-radius: 7px;
-    width: 100px;
-    height: 55px;
+    width: 172px;
     font-size: 1.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: MazzardBold, sans-serif;
     padding-top: .3rem;
-    margin-bottom: 2rem;
+    color: #7DCC40;
+    flex-shrink: 0;
+    flex-grow: 0;
 }
 
 .q3 {
-    position: relative;
-    top: 117px;
+    margin-top: 7rem;
 }
 
 .q4 {
-    margin-top: 152px
+    margin-top: 9rem;
 }
 
-.q2 {
-    margin-top: 62px;
+.q5 {
+    margin-top: 12rem;
+    justify-content: flex-start;
 }
 
 .roadmap-tree {
     position: absolute;
-    width: 518px;
-    left: 50%;
-    margin-left: -382px;
-    top: -75px;
+    width: 100%;
+    z-index: 0;
+    top: 0;
 }
 
 .block-description {
-    font-size: .7rem;
-    padding-top: 1rem;
+    font-size: .9rem;
+    max-width: 350px;
+    flex-shrink: 0;
+    flex-grow: 0;
 }
 
 .block-description p {
@@ -306,25 +352,42 @@ video {
 }
 
 .tokenomics {
-    margin-top: 4rem;
+    margin-top: 11rem;
     margin-bottom: 4rem;
 }
 
 .tokenomics-body {
     display: flex;
-    justify-content: left;
+    justify-content: center;
+    flex-wrap: wrap;
     margin-top: 3rem;
 }
 
 .t-block {
-    border: 2px solid white;
-    box-sizing: border-box;
-    border-radius: 11px;
+    width: 135px;
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    padding: 1rem;
-    cursor: pointer;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.t-block p {
+    font-size: .8rem;
+}
+
+.t-block + .t-block:not(:nth-child(4)) {
+    margin-left: 15rem;
+}
+
+.t-title {
+    margin: 1rem 0;
+}
+
+.t-block img {
+    width: 35px;
 }
 
 .t-block:hover {
@@ -651,6 +714,24 @@ video {
     color: black;
 }
 
+.about-us {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding-left: calc((100vw - 990px)/2);
+    padding-right: calc((100vw - 990px)/2);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 52%, rgba(255,255,255,0) 100%);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.background-white {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding-left: calc((100vw - 990px)/2);
+    padding-right: calc((100vw - 990px)/2);
+    background: white;
+}
+
 @media screen and (max-width: 990px) {
     .social-desktop {
         display: none;
@@ -808,6 +889,7 @@ video {
         margin-top: 1rem;
         width: initial;
         position: relative;
+        justify-content: flex-end;
     }
 
     .tokenomics {
