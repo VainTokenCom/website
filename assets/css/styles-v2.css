@@ -24,7 +24,7 @@
         filter: blur(51px);
     }
     50%  {
-        filter: blur(35px);
+        filter: blur(20px);
     }
     100% {
         filter: blur(51px);
@@ -52,15 +52,11 @@ html {
 }
 
 body {
-    background-image: url(../images/network.svg), linear-gradient(0deg, #FFFFFF 0.96%, #F3F7FB 21.08%, #A2B3C4 35.46%, #2B4E6D 54.34%, #0D2032 70.89%, #000305 100%);
-    background-size: 100%, auto 140vh;
-    background-repeat: no-repeat;
     color: black;
     margin: 0;
     font-family: Mazzard, sans-serif;
     font-size: 12pt;
     padding-bottom: 8rem;
-    background-position: 0 100px, 0 0;
 }
 
 a {
@@ -106,15 +102,15 @@ video {
     text-align: left;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 2rem;
+    padding-bottom: 10rem;
 }
 
 .divider {
     width: 80px;
     height: 5px;
-    background-color: white;
+    background-color: red;
     border-radius: 4px;
-    margin: 5rem auto;
+    margin: 5rem auto 10rem;
 }
 
 
@@ -130,13 +126,21 @@ video {
 .logo-circle {
     width: 120px;
     height: 120px;
-    border-radius: 50%;
     display: flex;
-    background-color: rgba(0, 0, 0, 0.38);
     justify-content: center;
     align-items: center;
     position: relative;
     margin: 0 auto;
+}
+
+.logo-circle::before {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.38);
+    content: "";
+    position: absolute;
+    z-index: 1;
 }
 
 .logo-circle::after {
@@ -145,16 +149,18 @@ video {
     position: absolute;
     background: #30A61C;
     content: "";
-    z-index: -1;
+
     border-radius: 50%;
     filter: blur(51px);
-    animation: blur 5s infinite;
+    animation: blur 8s infinite;
 }
 
 .logo-circle img {
     width: 41%;
     animation: rotate 5s infinite;
     animation-timing-function: linear;
+    position: relative;
+    z-index: 2;
 }
 
 .top-text-actions {
@@ -563,6 +569,7 @@ video {
 }
 
 .social {
+    display: none;
     margin-top: 4rem;
 }
 
@@ -605,6 +612,7 @@ video {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 
 .countdown-title .title-part1 {
@@ -619,6 +627,7 @@ video {
 }
 
 .time {
+    color: white;
     display: flex;
     justify-content: center;
 }
@@ -715,24 +724,37 @@ video {
 }
 
 .about-us {
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    padding-left: calc((100vw - 990px)/2);
-    padding-right: calc((100vw - 990px)/2);
-    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 52%, rgba(255,255,255,0) 100%);
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
 
-.background-white {
+.wide {
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
     padding-left: calc((100vw - 990px)/2);
     padding-right: calc((100vw - 990px)/2);
+}
+
+.background-white {
     background: white;
 }
 
+.background-dark {
+    background-image: url(../images/network.svg), linear-gradient(0deg, #FFFFFF 0%, #FFFFFF 2%,  #215479 15.46%, #000305 100%);
+    background-size: contain, 100%;
+    background-repeat: no-repeat;
+    background-position: center, 0 0;
+}
+
 @media screen and (max-width: 990px) {
+    .background-dark {
+        background-size: 350%, 100%;
+    }
+
+    .social {
+        display: block;
+    }
+
     .social-desktop {
         display: none;
     }
@@ -778,7 +800,6 @@ video {
     }
 
     .menu a:hover, .menu a:active {
-        background: #161616;
         text-decoration: none;
     }
 
@@ -805,16 +826,20 @@ video {
         z-index: 1;
     }
 
+    .roadmap {
+        display: none;
+    }
+
     .roadmap-tree {
         display: none;
     }
 
     .movement {
-        flex-direction: column;
+        display: block;
     }
 
-    .roadmap {
-        display: none;
+    .movement img {
+        width: 100%;
     }
 
     .htb-body {
@@ -822,7 +847,15 @@ video {
     }
 
     .tokenomics-body {
-        flex-direction: column;
+        display: block;
+    }
+
+    .t-block {
+        margin: 0 auto !important;
+    }
+
+    .t-block + .t-block {
+        margin-top: 2rem !important;
     }
 
     .coin {
@@ -854,6 +887,24 @@ video {
 
     .top-text {
         margin-top: 2rem;
+        display: block;
+    }
+
+    .top-text .title {
+        font-size: 1.5rem;
+    }
+
+    .top-text .description {
+        font-size: 1rem;
+    }
+
+    .top-text-actions {
+        width: auto;
+        margin-top: 3rem;
+    }
+
+    .top-text-text {
+        padding: 0 1rem;
     }
 
     .movement {
@@ -881,15 +932,12 @@ video {
         margin-bottom: 1rem;
     }
 
-    .q3 {
-        top: auto;
-    }
-
     .roadmap-block {
         margin-top: 1rem;
         width: initial;
         position: relative;
-        justify-content: flex-end;
+        display: block;
+        padding: 0;
     }
 
     .tokenomics {
@@ -899,11 +947,6 @@ video {
     .tokenomics-body {
         margin-top: 2rem;
         align-items: center;
-    }
-
-    .t-block {
-        margin: 1rem 1rem 0;
-        width: 90%;
     }
 
     .htb-block {
@@ -936,6 +979,7 @@ video {
 
     .q {
         overflow: hidden;
+        justify-content: flex-start;
     }
 
     .q::after {
@@ -945,7 +989,7 @@ video {
         height: 201px;
         content: "";
         right: -33px;
-        top: 7px;
+        top: -8px;
         background-image: url(../images/branch.svg);
         background-repeat: no-repeat;
         background-size: 100% 100%;
@@ -964,7 +1008,6 @@ video {
     }
 
     .social-body {
-        flex-direction: column;
         align-items: center;
         width: auto;
         margin-top: 0;
