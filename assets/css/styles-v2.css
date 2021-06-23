@@ -308,8 +308,12 @@ video {
     flex-grow: 0;
 }
 
+.q2 {
+    margin-top: 2rem;
+}
+
 .q3 {
-    margin-top: 7rem;
+    margin-top: 10rem;
 }
 
 .q4 {
