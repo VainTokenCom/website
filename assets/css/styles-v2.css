@@ -500,6 +500,7 @@ video {
     cursor: pointer;
     right: 16px;
     top: 64px;
+    margin-right: 10px;
 }
 
 .dots-vertical {
@@ -777,7 +778,7 @@ video {
     .viewport {
         width: initial;
         padding: 0 1rem;
-        overflow-y: hidden;
+        overflow: hidden;
     }
 
     .head {
@@ -844,6 +845,7 @@ video {
 
     .movement img {
         width: 100%;
+        margin-top: 1rem;
     }
 
     .htb-body {
@@ -918,6 +920,7 @@ video {
     .title-small {
         font-size: 1rem;
         line-height: 2rem;
+        text-align: center;
     }
 
     .about-us {
