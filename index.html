@@ -15,7 +15,7 @@
             var isMenuVisible = false;
 
             return {
-                contract: "",
+                contract: "0x6067652fe687aa221b6f86f398af4d0fe9bf45e3",
                 getDonationWalletBalance: async function() {
                     var walletAddress = '0x8f5D284610e3A1Ef883688cA795487a98B1b7B8F';
 
@@ -179,33 +179,33 @@
             </div>
         </section>
         <section class="countdown">
-            <div id="before-launch">
-                <h1 class="countdown-title">Vain Fair Re-Launch</h1>
-                <div class="time">
-                    <div class="time-block">
-                        <div class="time-number" id="countdown-days">00</div>
-                        <div class="time-caption green">DAYS</div>
-                    </div>
-                    <div class="time-block">
-                        <div class="time-number" id="countdown-hours">00</div>
-                        <div class="time-caption green">HOURS</div>
-                    </div>
-                    <div class="time-block">
-                        <div class="time-number" id="countdown-mins">00</div>
-                        <div class="time-caption green">MINS</div>
-                    </div>
-                    <div class="time-block">
-                        <div class="time-number" id="countdown-secs">00</div>
-                        <div class="time-caption green">SEC</div>
-                    </div>
-                </div>
-            </div>
-            <div id="after-launch" style="display:none; margin: 1rem">
+<!--            <div id="before-launch">-->
+<!--                <h1 class="countdown-title">Vain Fair Re-Launch</h1>-->
+<!--                <div class="time">-->
+<!--                    <div class="time-block">-->
+<!--                        <div class="time-number" id="countdown-days">00</div>-->
+<!--                        <div class="time-caption green">DAYS</div>-->
+<!--                    </div>-->
+<!--                    <div class="time-block">-->
+<!--                        <div class="time-number" id="countdown-hours">00</div>-->
+<!--                        <div class="time-caption green">HOURS</div>-->
+<!--                    </div>-->
+<!--                    <div class="time-block">-->
+<!--                        <div class="time-number" id="countdown-mins">00</div>-->
+<!--                        <div class="time-caption green">MINS</div>-->
+<!--                    </div>-->
+<!--                    <div class="time-block">-->
+<!--                        <div class="time-number" id="countdown-secs">00</div>-->
+<!--                        <div class="time-caption green">SEC</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+            <div id="after-launch" style="margin: 1rem">
                 <h1 class="countdown-title">Launched on PCS 🚀🚀🚀</h1>
                 <div style="display: flex; margin-bottom: 1rem">
                     <div class="contract-copy">
                         <div class="input-label"><span>Contract</span></div>
-                        <input type="text" value="" id="contract" readonly>
+                        <input type="text" value="0x6067652fe687aa221b6f86f398af4d0fe9bf45e3" id="contract" readonly>
                         <button type="button" class="copy-button" id="copy-button" onclick="vain.copyInputValue(this, document.getElementById('contract'))">copy</button>
                     </div>
                 </div>
@@ -464,7 +464,7 @@
             <div class="htb-block">
                 <p>Now select "Select a currency" and paste our contract address.</p>
                 <p>This is our contract address:</p>
-                <p id="contract2" style="word-break: break-all"></p>
+                <p id="contract2" style="word-break: break-all">0x6067652fe687aa221b6f86f398af4d0fe9bf45e3</p>
             </div>
             <div class="htb-block">
                 <p>Adjust slippage to 12%.</p>
@@ -493,7 +493,7 @@
 
 <script>
     // vain.getDonationWalletBalance();
-    vain.startCountdown();
+    // vain.startCountdown();
 
     var scrollButton = document.getElementById("scroll");
 
