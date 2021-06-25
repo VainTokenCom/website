@@ -15,6 +15,7 @@
             var isMenuVisible = false;
 
             return {
+                contract: "",
                 getDonationWalletBalance: async function() {
                     var walletAddress = '0x8f5D284610e3A1Ef883688cA795487a98B1b7B8F';
 
@@ -129,10 +130,12 @@
                         return resonse.json()
                     })
                         .then(function (json) {
+                            vain.contract = json.contract;
+
                             document.getElementById("before-launch").style.display = "none";
                             document.getElementById("after-launch").style.display = "block";
 
-                            document.getElementById("pancakeswap-link").href = "https://exchange.pancakeswap.finance/#/swap?outputCurrency=" + json.contract;
+                            // document.getElementById("pancakeswap-link").href = "https://exchange.pancakeswap.finance/#/swap?outputCurrency=" + json.contract;
                             document.getElementById("contract").value = json.contract;
                             document.getElementById("contract2").innerText = json.contract;
                         });
@@ -197,14 +200,15 @@
                     </div>
                 </div>
             </div>
-<!--            <div id="after-launch" style="display: none">-->
-<!--                <div style="display: flex; margin-bottom: 1rem">-->
-<!--                    <div class="contract-copy">-->
-<!--                        <div class="input-label"><span>Contract</span></div>-->
-<!--                        <input type="text" value="0x7d03d1ae4de2702d282540782c595027bdb9d76e" id="contract" readonly>-->
-<!--                        <button type="button" class="copy-button" id="copy-button" onclick="vain.copyInputValue(this, document.getElementById('contract'))">copy</button>-->
-<!--                    </div>-->
-<!--                </div>-->
+            <div id="after-launch" style="display:none; margin: 1rem">
+                <h1 class="countdown-title">Launched on PCS 🚀🚀🚀</h1>
+                <div style="display: flex; margin-bottom: 1rem">
+                    <div class="contract-copy">
+                        <div class="input-label"><span>Contract</span></div>
+                        <input type="text" value="" id="contract" readonly>
+                        <button type="button" class="copy-button" id="copy-button" onclick="vain.copyInputValue(this, document.getElementById('contract'))">copy</button>
+                    </div>
+                </div>
 <!--                <div style="display: flex">-->
 <!--                    <div class="contract-copy" style="margin-bottom: 2rem">-->
 <!--                        <div class="input-label" style="width: 140px"><span>WhiteBIT donation</span></div>-->
@@ -225,7 +229,7 @@
 <!--                <p>-->
 <!--                    <a href="https://charts.bogged.finance/?token=0x7D03D1aE4DE2702d282540782C595027Bdb9D76e" target="_blank">Open chart</a>-->
 <!--                </p>-->
-<!--            </div>-->
+            </div>
         </section>
         <section class="top-text">
             <div class="top-text-text">
@@ -239,8 +243,8 @@
                     <img src="./assets/images/logo-plain.svg" alt="Vain">
                 </div>
                 <div class="buttons">
-                    <button class="btn btn-green buy-btn" onclick="alert('Coming soon, stay tuned!')">Buy on PCS</button>
-                    <button class="btn btn-grey btn-arrow" onclick="alert('Coming soon, stay tuned!')">Live Chart</button>
+                    <button class="btn btn-green buy-btn" onclick="if (vain.contract) window.open('https://exchange.pancakeswap.finance/#/swap?outputCurrency=' + vain.contract); else alert('Coming soon, stay tuned!')">Buy on PCS</button>
+                    <button class="btn btn-grey btn-arrow" onclick="if (vain.contract) window.open('https://charts.bogged.finance/?token=' + vain.contract); else alert('Coming soon, stay tuned!')">Live Chart</button>
                 </div>
             </div>
         </section>
