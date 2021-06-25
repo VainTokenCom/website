@@ -514,14 +514,13 @@ video {
 
 .team-body {
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
     margin-top: 4rem;
 }
 
 .t-member {
     width: 170px;
     text-align: center;
-    margin-right: 4rem;
 }
 
 .t-member .profile {
