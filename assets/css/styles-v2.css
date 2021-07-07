@@ -777,7 +777,51 @@ video {
     font-family: MazzardBold, sans-serif;
 }
 
+.listings {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.listings a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 0;
+}
+
+.listings a:first-child {
+    justify-content: flex-start;
+}
+
+.listings a:last-child {
+    justify-content: flex-end;
+}
+
+.listings img {
+    width: 50%;
+}
+
 @media screen and (max-width: 990px) {
+    .listings {
+        display: block;
+    }
+
+    .listings a:first-child {
+        justify-content: center;
+    }
+
+    .listings a:last-child {
+        justify-content: center;
+    }
+
+    .listings a {
+        margin: 0 auto;
+        width: 80%;
+        margin-top: 2rem;
+    }
+
     .number {
         font-size: 1rem;
     }
