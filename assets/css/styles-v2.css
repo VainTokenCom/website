@@ -751,7 +751,45 @@ video {
     background-position: center, 0 0;
 }
 
+.numbers {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.numbers-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.number {
+    font-family: MazzardBold,sans-serif;
+    font-size: 2rem;
+    min-width: 4rem;
+    text-align: center;
+}
+
+.number-title {
+    margin-top: 1rem;
+    color: #7DCC40;
+    font-family: MazzardBold, sans-serif;
+}
+
 @media screen and (max-width: 990px) {
+    .number {
+        font-size: 1rem;
+    }
+
+    .numbers-block {
+        flex: 1 1 0;
+    }
+
+    .number-title {
+        font-size: .8rem;
+    }
+
     .background-dark {
         background-size: 350%, 100%;
     }
