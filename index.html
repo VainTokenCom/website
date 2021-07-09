@@ -8,7 +8,7 @@
     <title>Vain Token</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.6/web3.min.js"></script>
     <link rel='shortcut icon' type='image/x-icon' href='./favicon.ico' />
-    <link rel="stylesheet" href="./assets/css/styles-v2.css?0116">
+    <link rel="stylesheet" href="./assets/css/styles-v2.css?1739">
 
     <script>
         var vain = (function() {
@@ -238,13 +238,27 @@
 <!--                    </div>-->
 <!--                </div>-->
 <!--            </div>-->
-            <div id="after-launch" style="margin: 1rem">
-                <h1 class="countdown-title">Launched on PCS 🚀🚀🚀</h1>
-                <div style="display: flex; margin-bottom: 1rem">
-                    <div class="contract-copy">
-                        <div class="input-label"><span>Contract</span></div>
-                        <input type="text" value="0x6067652fe687aa221b6f86f398af4d0fe9bf45e3" id="contract" readonly>
-                        <button type="button" class="copy-button" id="copy-button" onclick="vain.copyInputValue(this, document.getElementById('contract'))">copy</button>
+            <div id="after-launch" class="head-block" style="margin: 1rem">
+                <div style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <h1 class="countdown-title">Launched on PCS 🚀🚀🚀</h1>
+                    <div style="display: flex; margin-bottom: 1rem">
+                        <div class="contract-copy">
+                            <div class="input-label"><span>Contract</span></div>
+                            <input type="text" value="0x6067652fe687aa221b6f86f398af4d0fe9bf45e3" id="contract" readonly>
+                            <button type="button" class="copy-button" id="copy-button" onclick="vain.copyInputValue(this, document.getElementById('contract'))">copy</button>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="button" style="width: initial" class="btn btn-green" onclick="window.open('https://forms.gle/BNQT2ysE9gc1wTLT9')">Become Vain's Ambassador 🤝</button>
+                    </div>
+                </div>
+                <div class="top-text-actions">
+                    <div class="logo-circle">
+                        <img src="./assets/images/logo-plain.svg" alt="Vain">
+                    </div>
+                    <div class="buttons">
+                        <button class="btn btn-green buy-btn" onclick="if (vain.contract) window.open('https://exchange.pancakeswap.finance/#/swap?outputCurrency=' + vain.contract); else alert('Coming soon, stay tuned!')">Buy on PCS</button>
+                        <button class="btn btn-grey btn-arrow" onclick="if (vain.contract) window.open('https://charts.bogged.finance/?token=' + vain.contract); else alert('Coming soon, stay tuned!')">Live Chart</button>
                     </div>
                 </div>
 <!--                <div style="display: flex">-->
@@ -274,15 +288,6 @@
                 <h1 class="title">A token made to make the world a better and <span class="green">greener</span> place</h1>
                 <div class="description">
                     <p>We can hear you think, how can a token change the world? One simple answer, by planting trees.</p>
-                </div>
-            </div>
-            <div class="top-text-actions">
-                <div class="logo-circle">
-                    <img src="./assets/images/logo-plain.svg" alt="Vain">
-                </div>
-                <div class="buttons">
-                    <button class="btn btn-green buy-btn" onclick="if (vain.contract) window.open('https://exchange.pancakeswap.finance/#/swap?outputCurrency=' + vain.contract); else alert('Coming soon, stay tuned!')">Buy on PCS</button>
-                    <button class="btn btn-grey btn-arrow" onclick="if (vain.contract) window.open('https://charts.bogged.finance/?token=' + vain.contract); else alert('Coming soon, stay tuned!')">Live Chart</button>
                 </div>
             </div>
         </section>
