@@ -101,6 +101,10 @@ video {
     justify-content: space-between;
 }
 
+.head-block-bottom {
+    align-items: flex-end;
+}
+
 .top-text {
     margin-top: 6rem;
     color: white;
@@ -495,6 +499,10 @@ video {
     display: none;
 }
 
+.hide {
+    display: none;
+}
+
 .htb-block:nth-child(n+4) {
     margin-top: 3rem;
 }
@@ -811,6 +819,10 @@ video {
 @media screen and (max-width: 990px) {
     .head-block {
         display: block;
+    }
+
+    .hide {
+        display: none;
     }
 
     .listings {

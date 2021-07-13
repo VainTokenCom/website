@@ -8,7 +8,7 @@
     <title>Vain Token</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.6/web3.min.js"></script>
     <link rel='shortcut icon' type='image/x-icon' href='./favicon.ico' />
-    <link rel="stylesheet" href="./assets/css/styles-v2.css?1739">
+    <link rel="stylesheet" href="./assets/css/styles-v2.css?1815">
 
     <script>
         var vain = (function() {
@@ -78,11 +78,11 @@
                         return response.json();
                     })
                         .then(function (json) {
-                            const time = window.location.hash.indexOf("launch") >= 0 ? Date.now() + 5000 : 1624644000000;
+                            const time = window.location.hash.indexOf("launch") >= 0 ? Date.now() + 5000 : 1627218000000;
                             var seconds = Math.round((time - json.timestamp)/1000);
 
                             if (seconds <= 0) {
-                                vain.revealContract();
+                                vain.hideTimerAndShowContract();
                                 return;
                             }
 
@@ -105,7 +105,7 @@
 
                                 if (seconds === 0) {
                                     clearInterval(countdownTimer);
-                                    vain.revealContract();
+                                    vain.hideTimerAndShowContract();
                                 } else {
                                     seconds--;
                                 }
@@ -125,6 +125,10 @@
 
                     button.innerText = "copied";
                 },
+                hideTimerAndShowContract: function () {
+                    document.getElementById("before-launch").style.display = "none";
+                    document.getElementById("after-launch").classList.remove('hide');
+                },
                 revealContract: function () {
                     fetch("https://vain.ondalom.workers.dev/contract").then(function (resonse) {
                         return resonse.json()
@@ -132,8 +136,7 @@
                         .then(function (json) {
                             vain.contract = json.contract;
 
-                            document.getElementById("before-launch").style.display = "none";
-                            document.getElementById("after-launch").style.display = "block";
+                            vain.hideTimerAndShowContract();
 
                             // document.getElementById("pancakeswap-link").href = "https://exchange.pancakeswap.finance/#/swap?outputCurrency=" + json.contract;
                             document.getElementById("contract").value = json.contract;
@@ -217,28 +220,39 @@
             </div>
         </section>
         <section class="countdown">
-<!--            <div id="before-launch">-->
-<!--                <h1 class="countdown-title">Vain Fair Re-Launch</h1>-->
-<!--                <div class="time">-->
-<!--                    <div class="time-block">-->
-<!--                        <div class="time-number" id="countdown-days">00</div>-->
-<!--                        <div class="time-caption green">DAYS</div>-->
-<!--                    </div>-->
-<!--                    <div class="time-block">-->
-<!--                        <div class="time-number" id="countdown-hours">00</div>-->
-<!--                        <div class="time-caption green">HOURS</div>-->
-<!--                    </div>-->
-<!--                    <div class="time-block">-->
-<!--                        <div class="time-number" id="countdown-mins">00</div>-->
-<!--                        <div class="time-caption green">MINS</div>-->
-<!--                    </div>-->
-<!--                    <div class="time-block">-->
-<!--                        <div class="time-number" id="countdown-secs">00</div>-->
-<!--                        <div class="time-caption green">SEC</div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-            <div id="after-launch" class="head-block" style="margin: 1rem">
+            <div id="before-launch" class="head-block head-block-bottom" style="margin: 1rem">
+                <div style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <h1 class="countdown-title" style="margin-bottom: 3rem">Vain's Big Resumption 👨‍🚀</h1>
+                    <div class="time">
+                        <div class="time-block">
+                            <div class="time-number" id="countdown-days">00</div>
+                            <div class="time-caption green">DAYS</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-number" id="countdown-hours">00</div>
+                            <div class="time-caption green">HOURS</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-number" id="countdown-mins">00</div>
+                            <div class="time-caption green">MINS</div>
+                        </div>
+                        <div class="time-block">
+                            <div class="time-number" id="countdown-secs">00</div>
+                            <div class="time-caption green">SEC</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="top-text-actions">
+                    <div class="logo-circle">
+                        <img src="./assets/images/logo-plain.svg" alt="Vain">
+                    </div>
+                    <div class="buttons">
+                        <button type="button" style="width: initial" class="btn btn-green" onclick="window.open('https://forms.gle/BNQT2ysE9gc1wTLT9')">Become Vain's Ambassador 🤝</button>
+                        <button type="button" style="width: initial" class="btn btn-grey" onclick="window.open('https://vain-token.myshopify.com')">Vain Shop 🛍️</button>
+                    </div>
+                </div>
+            </div>
+            <div id="after-launch" class="head-block hide" style="margin: 1rem">
                 <div style="display: flex; flex-direction: column; justify-content: space-between;">
                     <h1 class="countdown-title">Launched on PCS 🚀🚀🚀</h1>
                     <div style="display: flex; margin-bottom: 1rem">
@@ -259,6 +273,7 @@
                     <div class="buttons">
                         <button class="btn btn-green buy-btn" onclick="if (vain.contract) window.open('https://exchange.pancakeswap.finance/#/swap?outputCurrency=' + vain.contract); else alert('Coming soon, stay tuned!')">Buy on PCS</button>
                         <button class="btn btn-grey btn-arrow" onclick="if (vain.contract) window.open('https://charts.bogged.finance/?token=' + vain.contract); else alert('Coming soon, stay tuned!')">Live Chart</button>
+                        <button type="button" style="width: initial" class="btn btn-grey" onclick="window.open('https://vain-token.myshopify.com')">Vain Shop 🛍️</button>
                     </div>
                 </div>
 <!--                <div style="display: flex">-->
@@ -551,7 +566,7 @@
 
 <script>
     // vain.getDonationWalletBalance();
-    // vain.startCountdown();
+    vain.startCountdown();
     vain.animateNumbersOnViewport();
 
     var scrollButton = document.getElementById("scroll");
