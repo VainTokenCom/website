@@ -78,7 +78,7 @@
                         return response.json();
                     })
                         .then(function (json) {
-                            const time = window.location.hash.indexOf("launch") >= 0 ? Date.now() + 5000 : 1627218000000;
+                            const time = window.location.hash.indexOf("launch") >= 0 ? Date.now() + 5000 : 1627232400000;
                             var seconds = Math.round((time - json.timestamp)/1000);
 
                             if (seconds <= 0) {
